@@ -21,13 +21,21 @@ header {
 }
 
 header h1 {
-    font-size: 2.2rem;
-    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    margin-top: 1rem;
 }
 
 header p {
     font-size: 1.1rem;
     color: #aaa;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #1abc9c;
+    object-fit: cover;
 }
 
 /* Navigation */
@@ -37,6 +45,7 @@ nav {
     gap: 2rem;
     background: #222;
     padding: 0.8rem;
+    flex-wrap: wrap;
 }
 
 nav a {
@@ -64,8 +73,13 @@ section h2 {
     padding-left: 0.5rem;
 }
 
-.about, .projects, .contact {
-    margin-bottom: 3rem;
+section p, section ul {
+    margin-bottom: 1rem;
+}
+
+ul {
+    list-style: inside square;
+    padding-left: 1rem;
 }
 
 /* Projects */
@@ -80,6 +94,40 @@ section h2 {
 
 .project-card:hover {
     transform: translateY(-5px);
+}
+
+.project-card a {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: #1abc9c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.project-card a:hover {
+    text-decoration: underline;
+}
+
+/* Experience & Education */
+.exp-item, .edu-item {
+    margin-bottom: 1.5rem;
+}
+
+.exp-item span, .edu-item span {
+    display: block;
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 0.3rem;
+}
+
+/* Contact */
+.contact a {
+    color: #1abc9c;
+    text-decoration: none;
+}
+
+.contact a:hover {
+    text-decoration: underline;
 }
 
 /* Footer */
