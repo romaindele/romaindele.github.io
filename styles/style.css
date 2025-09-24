@@ -138,3 +138,24 @@ footer {
     color: #aaa;
     font-size: 0.9rem;
 }
+.code-extrait {
+    margin: 2rem 0;
+    background: #1e1e1e;
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+.code-extrait h2 {
+    color: #1abc9c;
+    margin-bottom: 0.8rem;
+}
+
+.code-extrait pre {
+    background: #1e1e1e;
+    color: #f8f8f2;
+    font-family: "Fira Code", monospace;
+    font-size: 0.9rem;
+    white-space: pre-wrap; /* permet de couper si trop long */
+    word-wrap: break-word;
+}
