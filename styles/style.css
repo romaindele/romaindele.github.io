@@ -1,49 +1,84 @@
-/* --- Reset simple --- */
+/* === RESET === */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    font-family: "Segoe UI", sans-serif;
-    line-height: 1.6;
-    color: #222;
-    background: #f9f9f9;
+/* === VARIABLES COULEURS === */
+:root {
+    --accent-1: #ff5f6d;
+    --accent-2: #ffc371;
+    --accent-grad: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+    --bg: #0f1720;
+    --text: #e6eef6;
 }
 
-/* Header */
+/* === BASE === */
+body {
+    font-family: "Roboto Flex", "Montserrat", "Segoe UI", sans-serif;
+    background: radial-gradient(circle at top left, rgba(255,95,109,0.08), transparent 40%), var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* === HEADER === */
 header {
-    background: #111;
+    background: linear-gradient(90deg, rgba(0,0,0,0.8), rgba(255,255,255,0.05));
     color: white;
-    padding: 2rem;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem 1rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    flex-wrap: wrap;
+}
+
+header .profile-pic {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 4px solid var(--accent-1);
+    object-fit: cover;
+    box-shadow: 0 0 15px rgba(255, 95, 109, 0.4);
+    transition: transform 0.3s ease;
+}
+
+header .profile-pic:hover {
+    transform: scale(1.05);
+}
+
+.header-text {
+    text-align: left;
 }
 
 header h1 {
-    font-size: 2.5rem;
-    margin-top: 1rem;
+    font-size: 2.4rem;
+    margin-bottom: 0.4rem;
 }
 
 header p {
     font-size: 1.1rem;
-    color: #aaa;
+    color: #ddd;
 }
 
-.profile-pic {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 3px solid #1abc9c;
-    object-fit: cover;
+@media (max-width: 700px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+    .header-text {
+        text-align: center;
+    }
 }
 
-/* Navigation */
+/* === NAVIGATION === */
 nav {
     display: flex;
     justify-content: center;
-    gap: 2rem;
-    background: #222;
+    gap: 1.5rem;
+    background: #111;
     padding: 0.8rem;
     flex-wrap: wrap;
 }
@@ -51,15 +86,15 @@ nav {
 nav a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
     transition: color 0.3s;
 }
 
 nav a:hover {
-    color: #1abc9c;
+    color: var(--accent-2);
 }
 
-/* Sections */
+/* === SECTIONS === */
 section {
     max-width: 1000px;
     margin: 3rem auto;
@@ -69,14 +104,12 @@ section {
 section h2 {
     font-size: 1.8rem;
     margin-bottom: 1rem;
-    border-left: 4px solid #1abc9c;
+    border-left: 4px solid var(--accent-1);
     padding-left: 0.5rem;
+    color: white;
 }
 
-section p, section ul {
-    margin-bottom: 1rem;
-}
-
+/* === SKILLS === */
 .skills {
     max-width: 1000px;
     margin: 3rem auto;
@@ -86,96 +119,133 @@ section p, section ul {
 .skills h2 {
     font-size: 1.8rem;
     margin-bottom: 2rem;
-    border-left: 4px solid #1abc9c;
+    border-left: 4px solid var(--accent-1);
     padding-left: 0.5rem;
 }
 
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
+    gap: 1.8rem;
 }
 
 .skill-card {
-    background: white;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
-    padding: 1.5rem 1rem;
+    padding: 1.5rem;
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .skill-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 25px rgba(255, 95, 109, 0.3);
 }
 
 .skill-img {
     width: 60px;
     height: 60px;
     object-fit: contain;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
 }
 
 .skill-card h3 {
-    color: #1abc9c;
+    color: var(--accent-2);
     margin-bottom: 0.5rem;
-    font-size: 1.1rem;
 }
 
 .skill-card p {
-    font-size: 0.9rem;
-    color: #333;
-    line-height: 1.4;
+    color: #ddd;
+    font-size: 0.95rem;
 }
 
-
-ul {
-    list-style: inside square;
-    padding-left: 1rem;
+/* === PROJETS === */
+.projects {
+    display: block;
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding: 0 1rem;
 }
 
-/* Projects */
+.projects h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--accent-1);
+    padding-left: 0.5rem;
+    color: #fff;
+}
+
+/* Carte projet */
 .project-card {
-    background: white;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    margin-bottom: 1rem;
-    transition: transform 0.3s;
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 25px rgba(2,6,23,0.5);
+    margin-bottom: 2.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+    box-shadow: 0 14px 40px rgba(2,6,23,0.6);
+}
+
+.project-card h3 {
+    color: var(--accent-2);
+    margin-bottom: 0.6rem;
+    font-size: 1.3rem;
+}
+
+.project-card p {
+    color: #d8eafc;
+    opacity: 0.95;
+    line-height: 1.5;
+    font-size: 0.95rem;
 }
 
 .project-card a {
     display: inline-block;
-    margin-top: 0.5rem;
-    color: #1abc9c;
+    margin-top: 1rem;
+    padding: 0.45rem 0.9rem;
+    border-radius: 8px;
+    background: var(--accent-grad);
+    color: #111;
+    font-weight: 700;
     text-decoration: none;
-    font-weight: bold;
+    box-shadow: 0 8px 24px rgba(255, 95, 109, 0.15);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .project-card a:hover {
-    text-decoration: underline;
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(255, 95, 109, 0.25);
 }
 
-/* Experience & Education */
+/* === EXPÉRIENCE & FORMATION === */
 .exp-item, .edu-item {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 1.5rem;
     margin-bottom: 1.5rem;
+}
+
+.exp-item h3, .edu-item h3 {
+    color: var(--accent-2);
 }
 
 .exp-item span, .edu-item span {
     display: block;
     font-size: 0.9rem;
-    color: #555;
+    color: #aaa;
     margin-bottom: 0.3rem;
 }
 
-/* Contact */
+/* === CONTACT === */
 .contact a {
-    color: #1abc9c;
+    color: var(--accent-2);
     text-decoration: none;
 }
 
@@ -183,24 +253,41 @@ ul {
     text-decoration: underline;
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 1.5rem;
-    background: #111;
-    color: #aaa;
-    font-size: 0.9rem;
+/* === BOUTON DE TÉLÉCHARGEMENT CV === */
+a[download] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--accent-grad);
+    color: #111;
+    padding: 0.6rem 1.2rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 8px 22px rgba(255, 95, 109, 0.2);
+    margin-top: 1.5rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
+
+a[download]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(255, 95, 109, 0.25);
+}
+
+/* === CODE EXEMPLE === */
 .code-extrait {
     margin: 2rem 0;
     background: #1e1e1e;
     padding: 1rem;
     border-radius: 8px;
     overflow-x: auto;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    position: relative;
 }
 
 .code-extrait h2 {
-    color: #1abc9c;
+    color: var(--accent-2);
     margin-bottom: 0.8rem;
 }
 
@@ -209,6 +296,34 @@ footer {
     color: #f8f8f2;
     font-family: "Fira Code", monospace;
     font-size: 0.9rem;
-    white-space: pre-wrap; /* permet de couper si trop long */
+    white-space: pre-wrap;
     word-wrap: break-word;
+}
+
+.copy-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--accent-grad);
+    color: #111;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.copy-btn:hover {
+    transform: translateY(-3px);
+}
+
+/* === FOOTER === */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background: #111;
+    color: #aaa;
+    font-size: 0.9rem;
+    margin-top: 3rem;
 }
