@@ -318,6 +318,38 @@ a[download]:hover {
     transform: translateY(-3px);
 }
 
+/* === Boutons de CV côte à côte === */
+.cv-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem; /* espace entre les boutons */
+    flex-wrap: wrap; /* pour que ça passe bien sur mobile */
+    margin-top: 1.5rem;
+}
+
+/* On garde le style des boutons existants */
+.cv-buttons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--accent-grad);
+    color: #111;
+    padding: 0.6rem 1.2rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 8px 22px rgba(255, 95, 109, 0.2);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cv-buttons a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(255, 95, 109, 0.25);
+}
+
+
 /* === FOOTER === */
 footer {
     text-align: center;
